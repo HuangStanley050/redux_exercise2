@@ -3,19 +3,34 @@
 
 
 const initialState = {
-    age: 32
+    age: 32,
+    result: []
 };
+
+// results: state.results.concat({ id: new Date(), value: action.result })
+// const updatedArray = state.results.filter(result => result.id !== action.id);
 
 const reducer = (state = initialState, action) => {
     if (action.type === "RANDOM") {
         const newAge = Math.floor((Math.random() * 99) + 1);
-        console.log(newAge);
+        //console.log(newAge);
+
         return {
             ...state,
-            age: newAge
-        }
+            age: newAge,
+            result: state.result.concat({ age: newAge, id: new Date() })
+        };
+    }
+    if (action.type === "DELETE") {
+        const newResult = state.result.filter(result => result.id !== action.id);
+        //const test = [1, 1];
+        return {
+            ...state,
+            result: newResult,
+
+        };
     }
     return state;
-}
+};
 
 export default reducer;
