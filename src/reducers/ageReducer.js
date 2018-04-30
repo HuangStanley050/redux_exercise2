@@ -1,5 +1,5 @@
 //Math.floor((Math.random() * 10) + 1);  1 to 10 random numbers
-
+import * as actionTypes from "./actions.js";
 
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
 // const updatedArray = state.results.filter(result => result.id !== action.id);
 
 const reducer = (state = initialState, action) => {
-    if (action.type === "RANDOM") {
+    if (action.type === actionTypes.RANDOM) {
         const newAge = Math.floor((Math.random() * 99) + 1);
         //console.log(newAge);
 
@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
             result: state.result.concat({ age: newAge, id: new Date() })
         };
     }
-    if (action.type === "DELETE") {
+    if (action.type === actionTypes.DELETE) {
         const newResult = state.result.filter(result => result.id !== action.id);
         //const test = [1, 1];
         return {

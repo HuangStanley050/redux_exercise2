@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Person from "./person.js";
 import "./add.css";
+import * as actionTypes from "../reducers/actions.js";
 
+///redux_ex1/src/reducers/actions.js
 class Add extends Component {
     render() {
         return (
@@ -29,8 +31,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAge: () => dispatch({ type: "RANDOM" }),
-        onDelete: (id) => dispatch({ type: "DELETE", id: id })
+        onAge: () => dispatch({ type: actionTypes.RANDOM }),
+        onDelete: (id) => dispatch({ type: actionTypes.DELETE, id: id })
     };
 
 };
